@@ -1,99 +1,28 @@
-import logo from './logo.svg';
-import React, { useEffect, useState, useRef } from "react";
 import './App.css';
-import RegisterPage from './pages/RegisterPage';
-import HomePage from './pages/HomePage';
-import FormInput from './pages/componets/FormInput';
-
-
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import HomePage from "./pages/components/pages/HomePage";
+import Cadastro from "./pages/components/pages/Cadastro";
+import Navbar from "./pages/components/Layouts/Navbar";
+import Footer from "./pages/components/Layouts/Footer";
+import Container from './pages/components/Layouts/Container';
 
 function App() {
- const [values, setValues ] = useState({
-  username:"",
-  nome:"",
-  email:"",
-  cpf:"",
-  password:"",
-  confirmPassword:"",
- });
- 
- const inputs = [
-  {
-    id:1,
-    name:'username',
-    type:"text",
-    placeholder:"Username",
-    label: "Username "
-
-  },
-  {
-    id:2,
-    name:'nome',
-    type:"text",
-    placeholder:"Nome completo",
-    label: "Nome completo "
-
-  },{
-    id:3,
-    name:'email',
-    type:"text",
-    placeholder:"E-mail",
-    label: "Email "
-
-  },{
-    id:4,
-    name:'cpf',
-    type:"text",
-    placeholder:"CPF",
-    label: "CPF "
-
-  },{
-    id:5,
-    name:'password',
-    type:"text",
-    placeholder:"Senha",
-    label: "Senha "
-
-  },{id:6,
-    name:'confirmPassword',
-    type:"text",
-    placeholder:"Digite a senha novamente",
-    label: "Validar Senha "
-
-  }
- ]
-
-
+ return (
   
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-   
+  <div>
     
-  }
-
-  const onChange = (e) => {
-    setValues({...values, [e.target.name]: e.target.value});
-  }
-  
-  console.log(values);
-
-  return (
-   <div className='App'>
-    <form onSubmit={handleSubmit}>
-      <h1>Cadastramento</h1>
-      {inputs.map((input)=> (
-        <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
-
-      ))}
-      
-      
-      <button>Submit</button>
-    </form>
-    
-
-   </div>
-  );
+      <Router> 
+      <Container customClass="min-height">    
+      <Navbar/>    
+        <Routes>
+          <Route exact path="/" ></Route>
+          <Route path="/cadastro" element={<Cadastro/>}></Route>
+        </Routes>     
+        </Container>
+        <Footer/>
+      </Router>
+</div>  
+ )
 }
 
 export default App;
