@@ -1,13 +1,21 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     background-color: #A04829;
     padding: 1em;
     margin: 0;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.item {
+    margin-right: 1em;
 }
 
 .list {
     display: flex;
     list-style: none;
     align-items: center;
+    list-style-type: none;
+    
 }

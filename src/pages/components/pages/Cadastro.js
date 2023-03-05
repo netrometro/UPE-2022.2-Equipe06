@@ -1,9 +1,15 @@
 import React from "react";
+import FormUsuario from '../forms/cadastro/FormCadastro'
+import styles from '../forms/cadastro/FormCadastro.module.css'
 
-const Cadastro = () => {
-    return (
-    <h1>HomePage</h1>
+function Cadastro() {
+    return(
+        <div>
+            <div className={styles.FormCadastro}>
+                <FormUsuario/>
+            </div>
+        </div>
     )
-};
+}
 
-export default Cadastro;
+export default Cadastro

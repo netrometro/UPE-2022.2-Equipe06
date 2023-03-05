@@ -1,10 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import HomePage from "./pages/components/pages/HomePage";
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 import Cadastro from "./pages/components/pages/Cadastro";
 import Navbar from "./pages/components/Layouts/Navbar";
 import Footer from "./pages/components/Layouts/Footer";
 import Container from './pages/components/Layouts/Container';
+import HomePage from './pages/components/pages/HomePage';
 
 function App() {
  return (
@@ -15,7 +16,7 @@ function App() {
       <Container customClass="min-height">    
       <Navbar/>    
         <Routes>
-          <Route exact path="/" ></Route>
+          <Route exact path="/" element={<HomePage/>}></Route>
           <Route path="/cadastro" element={<Cadastro/>}></Route>
         </Routes>     
         </Container>

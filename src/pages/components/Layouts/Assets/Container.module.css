@@ -1,9 +1,11 @@
 .container {
-    width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+    justify-content: end;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    list-style-image: none;
+    list-style-type: none;
+
 }
 
 .min-height {

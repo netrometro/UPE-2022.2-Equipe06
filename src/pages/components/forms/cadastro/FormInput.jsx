@@ -1,5 +1,5 @@
 import React from 'react'
-import "./formInput.css"
+import "./FormCadastro.module.css"
 
 
 const FormInput = (props) => {

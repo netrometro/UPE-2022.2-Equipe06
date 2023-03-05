@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from "react"
-import FormInput from './pages/componets/FormInput';
-import "./formInput.css"
+import FormInput from '../cadastro/FormInput';
+import "./FormCadastro.module.css"
 
 function FormUsuario() {
   const [values, setValues ] = useState({
@@ -76,7 +76,7 @@ function FormUsuario() {
   return (
    <div className='App'>
     <form onSubmit={handleSubmit}>
-      <h1>Cadastramento</h1>
+      <h1>Cadastro</h1>
       {inputs.map((input)=> (
         <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
 

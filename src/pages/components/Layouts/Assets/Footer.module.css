@@ -4,3 +4,18 @@
     padding: 3em;
     text-align: center;
 }
+
+.social_list {
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+
+}
+
+.social_list li {
+    margin: 0 1em;
+}
+
+.contact {
+    margin-top: 2em;
+}
