@@ -1,21 +1,42 @@
 .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
     background-color: #A04829;
     color: #3E3D62;
     padding: 3em;
-    text-align: center;
+    list-style: none;  
+
+    position: fixed;
+    width: 100%;  
+    bottom: 0;
 }
 
-.social_list {
+.footer .social_list{
     display: flex;
-    justify-content: end;
+    justify-content: start;
     list-style-type: none;
-
 }
-
-.social_list li {
+.footer .social_list li {
     margin: 0 1em;
 }
 
-.contact {
-    margin-top: 2em;
+.footer .social_list li svg {
+    font-size: 25px;
 }
+
+.footer .contactContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.footer .contactContainer .contact {   
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 1.5em;
+}
+
+

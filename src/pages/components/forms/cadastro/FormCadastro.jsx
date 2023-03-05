@@ -8,12 +8,9 @@ function FormUsuario() {
     username:"",
     nome:"",
     email:"",
-    cpf:"",
     password:"",
     confirmPassword:"",
    });
-
-   
    
    const inputs = [
     {
@@ -38,14 +35,8 @@ function FormUsuario() {
       placeholder:"E-mail",
       label: "Email "
   
-    },{
-      id:4,
-      name:'cpf',
-      type:"text",
-      placeholder:"CPF",
-      label: "CPF "
-  
-    },{
+    }
+    ,{
       id:5,
       name:'password',
       type:"text",

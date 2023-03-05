@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from "react"
-import FormInput from '../FormInput'
+import FormInput from '../cadastro/FormInput'
+import { Link } from 'react-router-dom';
 
 function FormLogin() {
 
@@ -55,7 +56,7 @@ function FormLogin() {
         
         
         <button>Confirmar</button>
-        <button>Clique aqui para fazer cadastro</button>
+        <Link to="/cadastro">Clique aqui para fazer cadastro</Link>
       </form>
       
   
