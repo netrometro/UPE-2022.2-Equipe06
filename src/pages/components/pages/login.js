@@ -31,6 +31,8 @@ function App() {
 
   },
   
+
+  
  ]
 
   const handleSubmit = (e) => {
@@ -56,6 +58,7 @@ function App() {
       
       
       <button>Confirmar</button>
+      <button>Clique aqui para fazer cadastro</button>
     </form>
     
 
