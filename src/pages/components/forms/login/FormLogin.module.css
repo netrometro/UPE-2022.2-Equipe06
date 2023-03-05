@@ -3,9 +3,11 @@ input{
     margin: 10px 0px;
     border-radius: 5px;
     border: 1px solid gray;
+}
 
-
-
+form {
+    width: 50px;
+    margin: auto;
 }
 
 .formInput{
