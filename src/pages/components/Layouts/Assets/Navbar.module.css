@@ -4,12 +4,30 @@
     background-color: #A04829;
     padding: 1em;
     margin: 0;
-    list-style-type: none;
-    list-style-image: none;
+}
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar ul .item {
+    margin-right: 1em;
+    padding-right: 15px;
+    list-style: none;
+    color: #3E3D62;      
+}
+
+.navbar ul .item .itemLink {
+    font-weight: bold;
+    color: #3E3D62;
+    text-decoration: none !important;
+    font-size: 20px;
 }
 
 .item {
-    margin-right: 1em;
+   
 }
 
 .list {
