@@ -2,11 +2,12 @@ import React from 'react'
 import {useState} from "react"
 import FormInput from '../cadastro/FormInput';
 import "./FormCadastro.module.css"
+import { Link } from 'react-router-dom';
 
 function FormUsuario() {
   const [values, setValues ] = useState({
-    username:"",
     nome:"",
+    sobrenome:"",
     email:"",
     password:"",
     confirmPassword:"",
@@ -15,18 +16,18 @@ function FormUsuario() {
    const inputs = [
     {
       id:1,
-      name:'username',
+      name:'nome',
       type:"text",
-      placeholder:"Username",
-      label: "Username "
+      placeholder:"Seu primeiro nome",
+      label: "Nome "
   
     },
     {
       id:2,
-      name:'nome',
+      name:'sobrenome',
       type:"text",
-      placeholder:"Nome completo",
-      label: "Nome completo "
+      placeholder:"Seu sobrenome",
+      label: "Sobrenome "
   
     },{
       id:3,
@@ -75,6 +76,7 @@ function FormUsuario() {
       
       
       <button>Submit</button>
+      <Link to="/login">Clique aqui para ir direto para o login.</Link>
     </form>
     
 
