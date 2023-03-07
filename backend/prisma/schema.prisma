@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:igor123@localhost:5432/ecommerce?schema=ecommerceT"
+}
+
+model User {
+  id  Int @id @default(autoincrement())
+  email String @unique
+  name String 
+  username String @unique
+  create_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  password String 
+
+  @@map("users")
+}
+
+model Anuncio {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  price Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("Anuncios")
+}
