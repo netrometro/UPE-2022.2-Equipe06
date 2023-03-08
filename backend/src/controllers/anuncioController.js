@@ -1,10 +1,10 @@
-const anuncioModel = require ('../models/anuncioModel')
+const produtoModel = require ('../models/produtoModel')
 
 const getAll  = async (req, res) => {
 
-    const anuncios = await anuncioModel.getAll();
+    const produtos = await produtoModel.getAll();
 
-    return res.status(200).json(anuncios);
+    return res.status(200).json(produtos);
 }
 
 module.exports = {

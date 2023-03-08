@@ -7,6 +7,7 @@ import Footer from "./pages/components/Layouts/Footer";
 import Container from './pages/components/Layouts/Container';
 import HomePage from './pages/components/pages/HomePage';
 import Login from './pages/components/pages/login';
+import Pedido from './pages/components/pages/Pedido';
 
 function App() {
  return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" element={<HomePage/>}></Route>
           <Route path="/cadastro" element={<Cadastro/>}></Route>
           <Route path="/login" element={<Login/>}> </Route>
+          <Route path="/pedido" element={<Pedido/>}> </Route>
         </Routes>     
         </Container>
         <Footer/>

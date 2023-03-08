@@ -1,8 +1,8 @@
 const connection = require('./connection')
 
 const getAll = async () => {
-    const anuncios = await connection.execute("SELECT * FROM anuncios")
-    return anuncios;
+    const produtos = await connection.execute("SELECT * FROM produto")
+    return produtos;
 }
 
 module.exports = {
