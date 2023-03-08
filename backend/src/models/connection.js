@@ -3,7 +3,6 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function main() {
-  //escrever aqui as querys do db
   const allUsers = await prisma.Anuncio.findMany()
   console.log(allUsers)
 }
