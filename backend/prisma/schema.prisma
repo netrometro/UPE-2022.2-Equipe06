@@ -15,11 +15,10 @@ model User {
   email String @unique
   name String 
   username String @unique
-  create_at DateTime @default(now())
-  updated_at DateTime @updatedAt
   password String 
-
-  @@map("users")
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  
 }
 
 model Anuncio {
@@ -29,6 +28,4 @@ model Anuncio {
   price Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-
-  @@map("Anuncios")
 }
