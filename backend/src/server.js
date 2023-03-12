@@ -1,7 +1,13 @@
-const app = require('./app');
-require('dotenv').config();
+import express from 'express';
 
-const PORT = process.env.PORT;
+import {router} from "./routers.js";
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+const app = express();
+
+app.use(express.json());
+app.use(router);
+
+
+app.listen(3030, () => console.log("Server running on port 3030"));
 
