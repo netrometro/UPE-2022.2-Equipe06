@@ -2,3 +2,12 @@
     color: #D3D3D3	;
     display: flex;
 }
+
+.card-map {
+    display: flex;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+
+  }

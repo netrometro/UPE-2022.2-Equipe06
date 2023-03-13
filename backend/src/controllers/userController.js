@@ -1,90 +1,26 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import express from 'express'
+import {createUser, deleteUser, findUser, findAllUsers, updateUser,} from '../services/userService.js'
 
-export default  {
-    async createUser(req, res) {
-        try{
-    
-        const {email, name, username, password} = req.body
-    
-        let user = await prisma.user.findUnique({where: {email}});
-            
-        if(user) {
-            return res.json({error: "já existe um usuário cadastrado com esse email ou username"})
-        }
-    
-         user = await prisma.user.create({
-            data: {
-                name,
-                username,
-                email,
-                password
-            }
-        });
-    
-        return res.json(user)
-        }catch (error) {
-            return res.json({error});
-        }
-    },
+const userController = express.Router();
 
-    async findAllUsers (req,res) {
-        try {
-            const users = await prisma.user.findMany();
-            return res.json(users);
-        }
-        catch (error) {
-            return res.json({error});
-        }
-    },
+userController.post('/user/register', async (req, res) => {
+    createUser(req, res)
+})
 
-    async findUser(req, res){
-        try{
-            const {id} = req.params;
+userController.put('/user/update/:id', async (req, res) => {
+    updateUser(req, res)
+})
 
-            const user = await prisma.user.findUnique({ where: {id: Number(id)}});
+userController.delete('/user/delete/:id', async (req, res) => {
+    deleteUser(req, res)
+})
 
-            if(!user) return res.json({error: "Não foi possivel encontrar esse usuário"});
+userController.get('/user/:id', async (req, res) => {
+    findUser(req, res)
+})
 
-            return res.json(user);
+userController.get('/users', async (req, res) => {
+    findAllUsers(req, res)
+})
 
-        }catch (error) {
-            return res.json({error});
-        }
-    },
-
-    async updateUser(req, res){
-        try{
-            const {id} = req.params;
-            const {email, name} = req.body;
-
-            let user = await prisma.user.findUnique({where: {id: Number(id)}});
-
-            if(!user) return res.json({error: "Não foi possivel encontrar esse usuário"});
-
-            user = await prisma.user.update({where: {id: Number(id)}, data: {email, name}});
-            return res.json(user);
-        }
-        catch (error) {
-            res.json({error});
-        }
-    },
-
-    async deleteUser(req, res){
-        try{
-            const {id} = req.params;
-
-            const user = await prisma.user.findUnique({ where: {id: Number(id)}});
-
-            if(!user) return res.json({error: "Não foi possivel encontrar esse usuário"});
-
-            await prisma.user.delete({where: {id: Number(id)}});
-
-            return res.json({message: "Usuário deletado"});
-
-        }catch (error) {
-            return res.json({error});
-        }
-    }
-
-}
+export default userController;
