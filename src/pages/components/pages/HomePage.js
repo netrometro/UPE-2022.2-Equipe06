@@ -5,8 +5,10 @@ import api from '../../../services/api.js'
 import Card from "../cards/Card";
 
 export const HomePage = () => {
+    const [cards, setCards] = useState([]);
+    const [busca, setBusca] = useState('');
+    console.log(busca);
 
-    const [card, setCards] = useState([]);
     useEffect(() => {
         api.get("/produtos")
         .then((response) => {
@@ -16,13 +18,30 @@ export const HomePage = () => {
         }).catch((error) => {
             console.log(error);
           });
-      }, []);
+    }, []);
 
+    
+    const cardsFiltrados = cards.filter(card => card.name.toLowerCase().includes(busca.toLowerCase())
+    || card.type.toLowerCase().includes(busca.toLowerCase()));
+
+   
+   
     return (
-    <div className='card-map'>
-        <h1 className={styles.h1}>Mais buscados na semana</h1>
-        <Card name={card.Name} description={card.description} price={card.price}/>  
+    <div className={styles.searchBar}>
+    <h1 className={styles.h1}>Mais buscados na semana</h1>
+    <input
+        placeholder="Pesquisar"
+        className={styles.searchBar}
+        type="text"
+        value={busca}
+        onChange={(e) => setBusca(e.target.value)}/>
+    <div className='card-map'>    
+        <ul className={styles.cardList}>
+        {cardsFiltrados.map((card) => <Card key={card.id} Name={card.name} description={card.description} price={card.price} imagemUrl={card.imagemUrl} type={card.type}/>)}
+        </ul>
     </div>
+    </div>
+    
     )
 };
 

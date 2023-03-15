@@ -15,12 +15,11 @@ function Navbar(){
                 <ul>       
                 <li className={styles.item}><Link className={styles.itemLink} to="/cadastro">registro</Link></li>
                 <li className={styles.item}><Link className={styles.itemLink} to="/login">login</Link></li>
-                <li className={styles.item}><Link to="/"> <img src={home_button} width={50} height={40} alt="home"></img></Link></li> 
-                <li className={styles.item}><img src={search} width={35} height={35}></img></li>
-                <li className={styles.item}><Link to="/promocoes"><img src={promocoes} width={35} height={35}></img></Link></li>
-                <li className={styles.item}><Link to="/novidades"><img src={news} width={35} height={35}></img></Link></li>
-                <li className={styles.item}><Link to="/carrinho"><img src={carrinho} width={35} height={35}></img></Link></li>
-                <li className={styles.item}><Link to="/perfil"><img src={perfil} width={35} height={35}></img></Link></li>
+                <li className={styles.item}><Link to="/"> <img src={home_button} width={40} height={30} alt="home"></img></Link></li> 
+                <li className={styles.item}><Link to="/promocoes"><img src={promocoes} width={30} height={30}></img></Link></li>
+                <li className={styles.item}><Link to="/novidades"><img src={news} width={30} height={30}></img></Link></li>
+                <li className={styles.item}><Link to="/carrinho"><img src={carrinho} width={30} height={30}></img></Link></li>
+                <li className={styles.item}><Link to="/perfil"><img src={perfil} width={30} height={30}></img></Link></li>
                 </ul>
             </Container>
         </nav>

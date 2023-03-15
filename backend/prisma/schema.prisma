@@ -21,11 +21,13 @@ model User {
   
 }
 
-model Anuncio {
+model Anuncios {
   id Int @id @default(autoincrement())
   name String
   description String
-  price Int
+  price String
+  imagemUrl String
+  type String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }

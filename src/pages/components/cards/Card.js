@@ -1,11 +1,18 @@
-import api from  '../../../services/api.js';
+import styles from './Assets/cards.module.css'
 
-const Card = ({Name, description, price}) => {
+const Card = ({Name, description, price, imagemUrl}) => {
+
+    const handleToCart = () => {
+        alert("ERRO: Não foi possível adicionar este item ao carrinho")
+    }
+
     return(
-        <div className="card">           
+        <div className={styles.card}>    
+            <img src={imagemUrl}></img>  
             <h2>{Name}</h2>
-            <h3>{description}</h3>
-            <p>{price}</p>
+            <p>{description}</p>
+            <p className={styles.price}>{price}</p>
+            <button className={styles.botaoAddCarrinho} onClick={handleToCart}>Adicionar ao carrinho</button>
         </div>
 
     );

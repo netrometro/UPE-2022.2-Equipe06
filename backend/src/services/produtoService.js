@@ -3,14 +3,16 @@ const prisma = new PrismaClient();
 
 export const createProduct = async (req,res) => {
 
-    const {name, description, price } = req.body;
+    const {name, description, price, imagemUrl, type } = req.body;
 
     try {
-    const post = await prisma.Anuncio.create({
+    const post = await prisma.anuncios.create({
         data: {
             name,
             description,
-            price
+            price,
+            imagemUrl,
+            type
         }})
         return res.json(post);
     }catch (error){
@@ -21,7 +23,7 @@ export const createProduct = async (req,res) => {
 
 export const findAllProducts = async (res) => {
     try {
-        const produtos = await prisma.anuncio.findMany();
+        const produtos = await prisma.anuncios.findMany();
         return res.json(produtos);
 
     } 
@@ -35,7 +37,7 @@ export const  findProduct = async (req, res) => {
     try{
         const {id} = req.params;
 
-        const produto = await prisma.Anuncio.findUnique({ where: {id: Number(id)}});
+        const produto = await prisma.anuncios.findUnique({ where: {id: Number(id)}});
 
         if(!produto) return res.json({error: "Não foi possivel encontrar esse produto"});
 
@@ -49,20 +51,22 @@ export const  findProduct = async (req, res) => {
 
 export const updateProduct = async (req,res) => {
     const { id } = req.params;
-    const { name, description, price} = req.body;
+    const { name, description, price, imagemUrl, type} = req.body;
 
     try {
-        const product = await prisma.Anuncio.findUnique({ where: { id: Number(id) } });
+        const product = await prisma.anuncios.findUnique({ where: { id: Number(id) } });
       
         if (!product) {
             return res.json({ message: "Produto inexistente" });
         }
-        await prisma.Anuncio.update({
+        await prisma.anuncios.update({
             where: { id: Number(id) },
             data: {
                 name,
                 description,
-                price
+                price,
+                imagemUrl,
+                type
             }});
         
             return res.json({ message: "Produto Atualizado!"})
@@ -76,11 +80,11 @@ export const deleteProduct = async (req, res) => {
     try{
         const {id} = req.params;
 
-        const produto = await prisma.Anuncio.findUnique({ where: {id: Number(id)}});
+        const produto = await prisma.anuncios.findUnique({ where: {id: Number(id)}});
 
-        if(!user) return res.json({error: "Não foi possivel encontrar esse produto"});
+        if(!produto) return res.json({error: "Não foi possivel encontrar esse produto"});
 
-        await prisma.Anuncio.delete({where: {id: Number(id)}});
+        await prisma.anuncios.delete({where: {id: Number(id)}});
 
         return res.json({message: "Produto deletado"});
 

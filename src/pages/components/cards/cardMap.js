@@ -1,7 +1,7 @@
 import React from "react";
 import Card from './Card.js';
 
-const cards = [
+/*const cards = [
     {
         name: "Notebook Asus",
         description: "notebook asus",
@@ -17,9 +17,9 @@ const cards = [
         description: "TV 50 polegadas",
         price: 5000
     }
-];
+];*/
 
-const CardMap = () => {
+/*const CardMap = () => {
     return (
         <div className="card-map">
           {cards.map((card) => (
@@ -29,4 +29,4 @@ const CardMap = () => {
       ) 
 }
 
-export default CardMap;
+export default CardMap;*/
