@@ -1,42 +1,43 @@
 .card {
-    width: auto;
-    height: auto;
-    background-color: #D3D3D3;
-    border-radius: .4em;
-    margin: 0.5em;
-    display: flex;
-    flex-direction: column;
-    padding: .4em;
-    justify-content: space-between;
+  width: 200px;
+  height: 350px;
+  background-color: #d3d3d3;
+  border-radius: 0.4em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card img {
-    display: block;
-    width: auto;
-    height: auto;
-    margin: revert;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: auto;
+  object-fit: cover;
 }
 
 .card p {
-    margin: 0;
-    
+  margin: 0;
+  text-overflow: ellipsis;
 }
 
 .card .price {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .card .botaoAddCarrinho {
-  background: #FF4742;
-  border: 1px solid #FF4742;
+  background: #ff4742;
+  border: 1px solid #ff4742;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 13px;
@@ -56,9 +57,9 @@
 .card .botaoAddCarrinho:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: #ff4742;
 }
 
 .card .botaoAddCarrinho:active {
-  opacity: .5;
+  opacity: 0.5;
 }

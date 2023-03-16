@@ -29,5 +29,5 @@
 
 .cardList{
     display: flex;
-   
+    flex-wrap: wrap;
 }

@@ -13,13 +13,14 @@
   }
   
   form{
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    padding: 0px 60px;
     border-radius: 10px;
   } 
   
   h1{
-    color: #007FFF;
+    color: #59595a;
     text-align: center;
   }
   

@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import api from "../../../services/api.js";
 import Card from "../cards/Card";
 
-export const HomePage = () => {
+export const Notebooks = () => {
   const [cards, setCards] = useState([]);
   const [busca, setBusca] = useState("");
+
   console.log(busca);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const HomePage = () => {
 
   return (
     <div className={styles.searchBar}>
-      <h1 className={styles.h1}>Mais buscados na semana</h1>
+      <h1 className={styles.h1}>Notebooks</h1>
       <input
         placeholder="Pesquisar"
         className={styles.searchBar}
@@ -39,20 +40,22 @@ export const HomePage = () => {
       />
       <div className="card-map">
         <ul className={styles.cardList}>
-          {cardsFiltrados.map((card) => (
-            <Card
-              key={card.id}
-              Name={card.name}
-              description={card.description}
-              price={card.price}
-              imagemUrl={card.imagemUrl}
-              type={card.type}
-            />
-          ))}
+          {cardsFiltrados
+            .filter((card) => (card.type = "Notebooks"))
+            .map((cardsFiltradosType) => (
+              <Card
+                key={cardsFiltradosType.id}
+                Name={cardsFiltradosType.name}
+                description={cardsFiltradosType.description}
+                price={cardsFiltradosType.price}
+                imagemUrl={cardsFiltradosType.imagemUrl}
+                type={cardsFiltradosType.type}
+              />
+            ))}
         </ul>
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default Notebooks;
