@@ -23,7 +23,7 @@ function LoginFunction() {
           localStorage.setItem("email", response.data.email);
           localStorage.setItem("userId", response.data.userId);
           alert("logado com sucesso!");
-          navigate("/home");
+          navigate("/");
         } else if (response.data.error === "Usuário não encontrado") {
           setError("Usuário não encontrado");
         } else {
