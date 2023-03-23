@@ -20,8 +20,9 @@ function LoginFunction() {
         console.log(response.data);
         if (response.data.result === true) {
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem("email", email);
+          localStorage.setItem("email", response.data.email);
           localStorage.setItem("userId", response.data.userId);
+          alert("logado com sucesso!");
           navigate("/home");
         } else if (response.data.error === "Usuário não encontrado") {
           setError("Usuário não encontrado");
@@ -29,10 +30,7 @@ function LoginFunction() {
           setError("Senha incorreta");
         }
       })
-      .catch((error) => {
-        setError("Erro ao fazer login");
-      });
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
