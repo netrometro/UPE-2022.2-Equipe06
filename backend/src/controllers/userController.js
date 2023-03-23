@@ -1,11 +1,17 @@
 import express from 'express'
-import {createUser, deleteUser, findUser, findAllUsers, updateUser,} from '../services/userService.js'
+import {createUser, deleteUser, findUser, findAllUsers, updateUser, loginUser,} from '../services/userService.js'
 
 const userController = express.Router();
+
 
 userController.post('/user/register', async (req, res) => {
     createUser(req, res)
 })
+
+userController.post("/login", async (req, res) => {
+    loginUser(req,res)
+});
+
 
 userController.put('/user/update/:id', async (req, res) => {
     updateUser(req, res)

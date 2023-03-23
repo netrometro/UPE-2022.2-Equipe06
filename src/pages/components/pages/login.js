@@ -1,15 +1,15 @@
 import React from "react";
-import FormLogin from '../forms/login/FormLogin'
+import LoginFunction from "../forms/login/FormLogin"
 import styles from '../forms/cadastro/FormCadastro.module.css'
 
-function Cadastro() {
+function Login() {
     return(
         <div>
             <div className={styles.FormCadastro}>
-                <FormLogin/>
+                <LoginFunction/>
             </div>
         </div>
     )
 }
 
-export default Cadastro
+export default Login

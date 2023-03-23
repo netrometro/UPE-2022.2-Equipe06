@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Cadastro from "./pages/components/pages/Cadastro";
+import CadastroPage from "./pages/components/pages/Cadastro"
 import Navbar from "./pages/components/Layouts/Navbar";
 import Footer from "./pages/components/Layouts/Footer";
 import Container from "./pages/components/Layouts/Container";
@@ -10,6 +10,7 @@ import Login from "./pages/components/pages/login";
 import PerfilPage from "./pages/components/pages/perfilPage";
 import Notebooks from "./pages/components/pages/notebooks";
 import FormProduto from "./pages/components/forms/produto/formProduto";
+import PaginaPagamento from "./pages/components/pages/paginaPagamento";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <Route exact path="/" element={<HomePage />}>
               {" "}
             </Route>{" "}
-            <Route path="/cadastro" element={<Cadastro />}>
+            <Route path="/cadastro" element={<CadastroPage />}>
               {" "}
             </Route>{" "}
             <Route path="/login" element={<Login />}>
@@ -34,6 +35,9 @@ function App() {
               {" "}
             </Route>{" "}
             <Route path="/cadastro/Produto" element={<FormProduto />}>
+              {" "}
+            </Route>{" "}
+            <Route path="/pagamento" element={<PaginaPagamento />}>
               {" "}
             </Route>{" "}
           </Routes>{" "}

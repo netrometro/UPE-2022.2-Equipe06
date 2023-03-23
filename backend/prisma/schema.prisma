@@ -7,18 +7,18 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:igor123@localhost:5432/ecommerce?schema=ecommerceT"
+  url      = "postgresql://postgres:igor123@localhost:5432/ecommerceProject?schema=ecommerceProject"
 }
 
 model User {
   id  Int @id @default(autoincrement())
-  email String @unique
   name String 
   username String @unique
+  email String @unique
   password String 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  
+  cart        Cart?
 }
 
 model Anuncios {
@@ -28,6 +28,13 @@ model Anuncios {
   price String
   imagemUrl String
   type String
+
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+}
+
+model Cart {
+  cartId       Int       @id @default(autoincrement())
+  user        User       @relation(fields: [id], references: [id])
+  id      Int            @unique
 }

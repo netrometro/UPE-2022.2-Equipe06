@@ -1,15 +1,15 @@
 import React from "react";
 import FormUsuario from '../forms/cadastro/FormCadastro'
 import styles from '../forms/cadastro/FormCadastro.module.css'
-
-function Cadastro() {
+import Cadastro from "../forms/cadastro/FormCadastro";
+function CadastroPage() {
     return(
         <div>
             <div className={styles.FormCadastro}>
-                <FormUsuario/>
+                <Cadastro/>
             </div>
         </div>
     )
 }
 
-export default Cadastro
+export default CadastroPage;
