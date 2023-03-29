@@ -18,7 +18,6 @@ model User {
   password String 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  cart        Cart?
 }
 
 model Anuncios {
@@ -28,13 +27,16 @@ model Anuncios {
   price String
   imagemUrl String
   type String
+  carrinho Carrinho?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
 
-model Cart {
-  cartId       Int       @id @default(autoincrement())
-  user        User       @relation(fields: [id], references: [id])
-  id      Int            @unique
+model Carrinho {
+  id         Int      @id @default(autoincrement())
+  quantidade Int
+  subtotal  Float
+  produtoId  Int @unique
+  produto Anuncios @relation(fields: [produtoId], references: [id])
 }

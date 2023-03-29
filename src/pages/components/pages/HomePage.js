@@ -7,6 +7,8 @@ import Card from "../cards/Card";
 export const HomePage = () => {
   const [cards, setCards] = useState([]);
   const [busca, setBusca] = useState("");
+
+  
   console.log(busca);
 
   useEffect(() => {

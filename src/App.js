@@ -11,11 +11,16 @@ import PerfilPage from "./pages/components/pages/perfilPage";
 import Notebooks from "./pages/components/pages/notebooks";
 import FormProduto from "./pages/components/forms/produto/formProduto";
 import PaginaPagamento from "./pages/components/pages/paginaPagamento";
+import { UserProvider } from "./pages/components/utils/userContext";
+import Cart from "./pages/components/pages/carrinhoPage";
+import { CartProvider } from "./pages/components/utils/cartContext";
 
 function App() {
   return (
     <div>
       <Router>
+        <UserProvider>
+        <CartProvider>
         <Container customClass="min-height">
           <Navbar />
           <Routes>
@@ -40,9 +45,14 @@ function App() {
             <Route path="/pagamento" element={<PaginaPagamento />}>
               {" "}
             </Route>{" "}
+            <Route path="/carrinho" element={<Cart />}>
+              {" "}
+            </Route>{" "}
           </Routes>{" "}
         </Container>{" "}
         <Footer />
+        </CartProvider>
+        </UserProvider>
       </Router>{" "}
     </div>
   );
