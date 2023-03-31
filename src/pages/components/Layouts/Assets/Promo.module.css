@@ -1,0 +1,48 @@
+.h2Title {
+    color: red;
+  }
+ 
+ 
+ .containerPromo {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .containerPromo > div {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: calc(33.33% - 20px);
+  }
+  
+  @media (max-width: 768px) {
+    .containerPromo > div {
+      max-width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .containerPromo > div {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+ 
+  
+  span{
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: aliceblue;
+    border-radius: 10px;
+    
+  }
+  .nada{
+    color: white;
+    padding-right: 10px;
+    background-color:red;
+    border-radius: 10px;
+  }
+  
+  
