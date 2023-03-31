@@ -15,6 +15,9 @@ import { UserProvider } from "./pages/components/utils/userContext";
 import Cart from "./pages/components/pages/carrinhoPage";
 import { CartProvider } from "./pages/components/utils/cartContext";
 
+
+
+
 function App() {
   return (
     <div>
@@ -24,10 +27,14 @@ function App() {
         <Container customClass="min-height">
           <Navbar />
           <Routes>
+           
             <Route exact path="/" element={<HomePage />}>
               {" "}
             </Route>{" "}
             <Route path="/cadastro" element={<CadastroPage />}>
+              {" "}
+            </Route>{" "}
+            <Route path="/addPromo" element={<Login />}>
               {" "}
             </Route>{" "}
             <Route path="/login" element={<Login />}>
