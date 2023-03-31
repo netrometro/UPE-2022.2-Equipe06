@@ -3,6 +3,7 @@ import styles from "./Assets/Home.module.css";
 import { useEffect, useState } from "react";
 import api from "../../../services/api.js";
 import Card from "../cards/Card";
+import Promo from "./Promo";
 
 export const HomePage = () => {
   const [cards, setCards] = useState([]);
@@ -52,6 +53,9 @@ export const HomePage = () => {
             />
           ))}
         </ul>
+      </div>
+      <div>
+        <Promo/>
       </div>
     </div>
   );
