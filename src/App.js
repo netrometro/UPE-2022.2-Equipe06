@@ -15,6 +15,9 @@ import { UserProvider } from "./pages/components/utils/userContext";
 import Cart from "./pages/components/pages/carrinhoPage";
 import { CartProvider } from "./pages/components/utils/cartContext";
 
+import AddPromo from "./pages/components/forms/addPromo/addPromo";
+import PromoRePage from "./pages/components/pages/PromoRePage";
+
 
 
 
@@ -34,9 +37,11 @@ function App() {
             <Route path="/cadastro" element={<CadastroPage />}>
               {" "}
             </Route>{" "}
-            <Route path="/addPromo" element={<Login />}>
+          
+            <Route path="/addPromo" element={<PromoRePage/>}>
               {" "}
             </Route>{" "}
+           
             <Route path="/login" element={<Login />}>
               {" "}
             </Route>{" "}
@@ -66,3 +71,5 @@ function App() {
 }
 
 export default App;
+
+

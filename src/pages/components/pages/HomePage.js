@@ -1,15 +1,14 @@
-import React from "react";
-import styles from "./Assets/Home.module.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../../services/api.js";
 import Card from "../cards/Card";
-import Promo from "./Promo";
+import AddPromo from "../forms/addPromo/addPromo.js";
+import styles from "./Assets/Home.module.css";
 
 export const HomePage = () => {
   const [cards, setCards] = useState([]);
   const [busca, setBusca] = useState("");
+  const [promocoes, setPromocoes] = useState([]);
 
-  
   console.log(busca);
 
   useEffect(() => {
@@ -24,11 +23,27 @@ export const HomePage = () => {
       });
   }, []);
 
+  useEffect(() => {
+    // busca as promoções da API
+    api
+      .get("/promocoes")
+      .then((response) => {
+        setPromocoes(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const cardsFiltrados = cards.filter(
     (card) =>
       card.name.toLowerCase().includes(busca.toLowerCase()) ||
       card.type.toLowerCase().includes(busca.toLowerCase())
   );
+
+  const addPromo = (novaPromo) => {
+    setPromocoes([...promocoes, novaPromo]);
+  };
 
   return (
     <div className={styles.searchBar}>
@@ -55,7 +70,7 @@ export const HomePage = () => {
         </ul>
       </div>
       <div>
-        <Promo/>
+        
       </div>
     </div>
   );
