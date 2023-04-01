@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Card from "../cards/Card";
 import styles from "../Layouts/Assets/Promo.module.css";
-
+import AddPromo from "../forms/addPromo/addPromo";
 
 
 
 const Promo = ({ promocoes }) => {
-  const [tempoRestante, setTempoRestante] = useState(5); // lembrar que é tempo em segundos
+  const [tempoRestante, setTempoRestante] = useState(0); // lembrar que é tempo em segundos
   const [ativa, setAtiva] = useState(true); // promoção está on?
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Promo = ({ promocoes }) => {
     <div className={styles.containerPromo}>
       <div>
         <h2 className={styles.title}>Promoções Relâmpago!!!</h2>
-        <span className={styles.timer}>{tempoFormatado}</span>
+       {/* <span className={styles.timer}>{tempoFormatado}</span>*/}
         {promocoes && promocoes.length > 0 ? (
           promocoes.map((promo) => (
             <Card
@@ -55,5 +55,6 @@ const Promo = ({ promocoes }) => {
     </div>
   );
 };
+
 
 export default Promo;

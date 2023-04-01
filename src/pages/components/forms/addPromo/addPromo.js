@@ -8,54 +8,39 @@ const AddPromo = ({ addPromo }) => {
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [time, setTime] = useState(""); // novo estado para o tempo
+  const [novaPromo, setNovaPromo] = useState({ name: "", description: "", price: "", imageUrl: "" });
+
+  
+
+  
+  const handleChange = (e) => {
+    setNovaPromo({ ...novaPromo, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPromo({ name, description, price, imageUrl, time }); // adicionando o tempo na promoção
-    setName("");
-    setDescription("");
-    setPrice("");
-    setImageUrl("");
-    setTime("");
+    addPromo(novaPromo); // correção aqui
+    setNovaPromo({ name: "", description: "", price: "", imageUrl: "" });
   };
-
+  
+  
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Nome:</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <input type="text" name="name" value={novaPromo.name} onChange={handleChange} />
       </div>
       <div>
         <label htmlFor="description">Descrição:</label>
-        <input
-          type="text"
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <input type="text" name="description" value={novaPromo.description} onChange={handleChange} />
       </div>
       <div>
         <label htmlFor="price">Preço:</label>
-        <input
-          type="text"
-          id="price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        <input type="text" name="price" value={novaPromo.price} onChange={handleChange} />
       </div>
       <div>
         <label htmlFor="imageUrl">URL da imagem:</label>
-        <input
-          type="text"
-          id="imageUrl"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
+        <input type="text" name="imageUrl" value={novaPromo.imageUrl} onChange={handleChange} />
       </div>
       <div> {/* novo campo para inserir o tempo */}
         <label htmlFor="time">Tempo da promoção:</label>
@@ -72,6 +57,4 @@ const AddPromo = ({ addPromo }) => {
 };
 
 export default AddPromo;
-
-
 
