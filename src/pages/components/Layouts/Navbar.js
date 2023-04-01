@@ -9,6 +9,7 @@ import carrinho from "../images/shopping-cart-changed.png";
 import perfil from "../images/perfil-de-usuario-changed.png";
 import { UserContext } from "../utils/userContext"
 import raio from "../images/raio.png";
+import PromoRePage from "../pages/PromoRePage";
 
 
 function Navbar() {
@@ -31,7 +32,7 @@ function Navbar() {
           {!user ? (
             <>
             <li className={styles.item}>
-                <Link className={styles.itemLink} to="/cadastro">
+                <Link className={styles.itemLink} to="/addPromo">
                   Add Promoção
                 </Link>
               </li>
