@@ -74,7 +74,7 @@ export const HomePage = () => {
         </ul>
       </div>
       <div>
-      <button onClick={() => setModalIsOpen(true)}>Promoções relâmpago</button>
+        <button onClick={() => setModalIsOpen(true)}>Promoções relâmpago</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(false)}
@@ -98,6 +98,7 @@ export const HomePage = () => {
               <li key={promo.id}>{promo.description}</li>
             ))}
           </ul>
+          <AddPromo addPromo={addPromo} />
           <button onClick={() => setModalIsOpen(false)}>Fechar</button>
         </Modal>
       </div>
