@@ -3,11 +3,15 @@ import api from "../../../services/api.js";
 import Card from "../cards/Card";
 import AddPromo from "../forms/addPromo/addPromo.js";
 import styles from "./Assets/Home.module.css";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
 
 export const HomePage = () => {
   const [cards, setCards] = useState([]);
   const [busca, setBusca] = useState("");
   const [promocoes, setPromocoes] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   console.log(busca);
 
@@ -70,7 +74,33 @@ export const HomePage = () => {
         </ul>
       </div>
       <div>
-        
+        <button onClick={() => setModalIsOpen(true)}>Promoções relâmpago</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={() => setModalIsOpen(false)}
+          style={{
+            content: {
+              width: "50%",
+              height: "50%",
+              margin: "auto",
+              backgroundColor: "white",
+              borderRadius: "10px",
+            },
+            overlay: {
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+            },
+          }}
+        >
+          <h2>Promoções relâmpago</h2>
+          <p>Aqui estão as promoções relâmpago disponíveis:</p>
+          <ul>
+            {promocoes.map((promo) => (
+              <li key={promo.id}>{promo.description}</li>
+            ))}
+          </ul>
+          <AddPromo addPromo={addPromo} />
+          <button onClick={() => setModalIsOpen(false)}>Fechar</button>
+        </Modal>
       </div>
     </div>
   );
