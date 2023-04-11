@@ -93,9 +93,7 @@ export const HomePage = () => {
           <p>Aqui estão as promoções disponíveis:</p>
           <ul>
             {promocoes.map((promo) => (
-              
               <li key={promo.id}> {promo.name} {promo.description} {promo.price}</li>
-
             ))}
           </ul>
           <AddPromo addPromo={addPromo} />
