@@ -74,7 +74,7 @@ export const HomePage = () => {
         </ul>
       </div>
       <div>
-        <button onClick={() => setModalIsOpen(true)}>Promoções relâmpago</button>
+        <button onClick={() => setModalIsOpen(true)}>Pop-up</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(false)}
@@ -91,8 +91,8 @@ export const HomePage = () => {
             },
           }}
         >
-          <h2>Promoções relâmpago</h2>
-          <p>Aqui estão as promoções relâmpago disponíveis:</p>
+          <h2>Promoções </h2>
+          <p>Aqui estão as promoções disponíveis:</p>
           <ul>
             {promocoes.map((promo) => (
               <li key={promo.id}>{promo.description}</li>
