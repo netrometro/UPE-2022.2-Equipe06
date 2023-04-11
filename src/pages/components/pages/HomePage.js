@@ -50,31 +50,29 @@ export const HomePage = () => {
   };
 
   return (
-    <div className={styles.searchBar}>
-      <h1 className={styles.h1}>Mais buscados na semana</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Mais buscados na semana</h1>
       <input
         placeholder="Pesquisar"
-        className={styles.searchBar}
+        className={styles.searchInput}
         type="text"
         value={busca}
         onChange={(e) => setBusca(e.target.value)}
       />
-      <div className="card-map">
-        <ul className={styles.cardList}>
-          {cardsFiltrados.map((card) => (
-            <Card
-              key={card.id}
-              Name={card.name}
-              description={card.description}
-              price={card.price}
-              imagemUrl={card.imagemUrl}
-              type={card.type}
-            />
-          ))}
-        </ul>
+      <div className={styles.cardMap}>
+        {cardsFiltrados.map((card) => (
+          <Card
+            key={card.id}
+            Name={card.name}
+            description={card.description}
+            price={card.price}
+            imagemUrl={card.imagemUrl}
+            type={card.type}
+          />
+        ))}
       </div>
       <div>
-        <button onClick={() => setModalIsOpen(true)}>Pop-up</button>
+        <button className={styles.promoButton} onClick={() => setModalIsOpen(true)}>Promoções</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(false)}
@@ -95,11 +93,13 @@ export const HomePage = () => {
           <p>Aqui estão as promoções disponíveis:</p>
           <ul>
             {promocoes.map((promo) => (
-              <li key={promo.id}>{promo.description}</li>
+              
+              <li key={promo.id}> {promo.name} {promo.description} {promo.price}</li>
+
             ))}
           </ul>
           <AddPromo addPromo={addPromo} />
-          <button onClick={() => setModalIsOpen(false)}>Fechar</button>
+          <button className={styles.modalButton} onClick={() => setModalIsOpen(false)}>Fechar</button>
         </Modal>
       </div>
     </div>
